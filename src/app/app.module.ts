@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
+    DashboardComponent,
 
   ],
   imports: [
