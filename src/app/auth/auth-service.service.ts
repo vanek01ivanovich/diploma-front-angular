@@ -16,7 +16,7 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
 
-  private loginUrl = 'http://localhost:8081/login';
+  private loginUrl = 'http://localhost:8080/login';
 
   login(credentials: AuthLoginInfo): Observable<JwtResponse>{
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
