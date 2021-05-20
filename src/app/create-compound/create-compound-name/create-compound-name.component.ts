@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-create-compound-name',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateCompoundNameComponent implements OnInit {
 
+  compoundName: string;
+  compoundDescription: string;
+  @Output()name = new EventEmitter<string>();
+  @Output()description = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setNameDescription(){
+    this.name.emit(this.compoundName);
+    this.description.emit(this.compoundDescription);
   }
 
 }

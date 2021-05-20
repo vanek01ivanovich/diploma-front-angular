@@ -1,1 +1,56 @@
-<p>test-case-body works!</p>
+<div *ngIf="showForm">
+  <div class="form-group mt-4 mb-1 mx-4"  *ngFor="let step of scenarioSteps; let i=index">
+
+    <div *ngIf="step.compound !== undefined && step.compound !== null ">
+
+      <div class="row my-3">
+        <div class="col">
+          <h5>Compound: {{step.compound.name}}</h5>
+        </div>
+        <div class="col">
+        </div>
+      </div>
+
+      <div class="row" *ngFor="let action of step.actionDto; let j=index">
+
+        <div class="col">
+          <p>Action: {{action.name}}</p>
+        </div>
+
+        <div class="col">
+          <div class="row mb-3" *ngFor="let variable of action.variables; let k=index">
+            <select class="select-test-case custom-select mr-sm-2" [(ngModel)]="varVals[i][j][k].dataEntryId" [disabled]="onlyView">
+              <option [value]=undefined disabled>Enter {{variable.name}}</option>
+              <option *ngFor="let dataEntry of dataEntries" [selected]="varVals[i][j][k].dataEntryId === dataEntry.id" [value]="dataEntry.id">
+                {{dataEntry.key}}
+              </option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row my-3" *ngIf="step.compound === undefined || step.compound === null">
+
+      <div class="col">
+        <h5>Action: {{step.actionDto[0].name}}</h5>
+      </div>
+
+      <div class="col">
+        <div class="row mb-3" *ngFor="let variable of step.actionDto[0].variables; let k=index">
+          <select class="select-test-case custom-select mr-sm-2" [(ngModel)]="varVals[i][0][k].dataEntryId" [disabled]="onlyView">
+            <option [value]=undefined disabled>Enter {{variable.name}}</option>
+            <option *ngFor="let dataEntry of dataEntries" [selected]="varVals[i][0][k].dataEntryId === dataEntry.id" [value]="dataEntry.id">
+              {{dataEntry.key}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

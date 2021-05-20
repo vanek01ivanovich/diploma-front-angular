@@ -1,1 +1,66 @@
-<p>test-case-list works!</p>
+<div class="m-3">
+  <h5>Test Case list (click to edit)</h5>
+</div>
+<table class="table bg-light search-nav">
+  <thead>
+  <tr>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Name" aria-label="Search"
+                           [(ngModel)]="search.name" (change)="onSearchSubmit()"></th>
+    <th scope="col">
+      <div class="col-auto">
+        <select class="custom-select mr-sm-2" id="sortBy" [(ngModel)]="search.sortField" (change)="onSearchSubmit()">
+          <option selected value="">Sort by</option>
+          <option value="id">Id</option>
+          <option value="name">Name</option>
+
+        </select>
+      </div>
+    </th>
+    <th scope="col">
+      <button class="btn btn-outline-success" type="submit" (click)="onSearchSubmit()">Search</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th scope="col">Id</th>-->
+<!--    <th scope="col">Name</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody>-->
+<!--  <tr *ngFor="let testCase of testCases" routerLink="/edittestscenario/{{testCase.id}}">-->
+<!--    <th scope="row">{{testCase.id}}</th>-->
+<!--    <td>{{testCase.name}}</td>-->
+<!--  </tr>-->
+<!--  </tbody>-->
+<!--</table>-->
+
+
+<table class="table" style="width: 500px">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Creator`s e-mail</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of testCases" routerLink="{{item.testCaseUpd.id}}">
+    <th scope="row">{{item.testCaseUpd.id}}</th>
+    <td>{{item.testCaseUpd.name}}</td>
+    <td>{{item.email}}</td>
+  </tr>
+  </tbody>
+</table>
+<app-pagination [quantityPages]="numberOfPages"
+                [sizePage]="pageSize"
+                (clickPage)="getPage($event)"></app-pagination>
+
+
+
+
+

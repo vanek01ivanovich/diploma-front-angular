@@ -1,1 +1,31 @@
-<p>test-scenario-add-action works!</p>
+<div class="mt-3 p-3 border border-primary rounded w-75">
+  <label class="font-weight-bold">Action:</label><br>
+  <label>
+    <select class="custom-select mr-sm-2"
+            [(ngModel)]="currentActionName"
+            (ngModelChange)="setAction()">
+      <option *ngFor="let action of actions">{{action.name}}</option>
+    </select>
+  </label>
+  <br>
+  <button class="btn btn-outline-success m-1 w-25" type="button"
+          [disabled]="!isElementSelected"
+          (click)="createAction()">Create</button>
+  <button class="btn btn-outline-danger m-1 w-25" type="button"
+          (click)="cancelAction()">Cancel</button>
+  <div class="mt-2" *ngIf="isElementSelected">
+    <table class="table w-100">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Priority</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{currentAction.name}}</td>
+        <td>{{currentPriority}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

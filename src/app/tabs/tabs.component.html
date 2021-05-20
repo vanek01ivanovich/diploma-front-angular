@@ -1,1 +1,8 @@
-<p>tabs works!</p>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link" #firstTab (click)="onTabClick('first')">List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" #secondTab (click)="onTabClick('second')">Add</a>
+  </li>
+</ul>

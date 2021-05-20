@@ -1,1 +1,46 @@
-<p>test-case-view works!</p>
+<div class="container-fluid mr-5 mt-5">
+
+  <div class="testcase-form mb-4">
+    <div class="form-group m-4">
+      <input class="select-test-case form-control" [(ngModel)]="testCase.testCase.name" disabled>
+    </div>
+
+    <app-test-case-body (showFormButton)="showForm = $event"></app-test-case-body>
+
+    <div class="form-group ml-4 ">
+      <p [textContent]="'Is archived: ' + (testCase.testCase.isArchived ? 'Yes' : 'No')" ></p>
+    </div>
+
+  </div>
+
+  <div class="mt-2">
+
+    <div class="d-inline m-4">
+      <a routerLink="/projects/{{testCase.testCase.projectId}}/testcase/{{testCase.testCase.id}}/edit">
+        <button class="btn btn-primary">Edit</button>
+      </a>
+    </div>
+
+    <div class="d-inline m-4">
+      <a>
+        <button [className]="isFollowed ? 'btn btn-danger' : 'btn btn-primary'"
+                [textContent]="isFollowed ? 'Unfollow' : 'Follow'"
+                (click)="onFollowButton()"></button>
+      </a>
+    </div>
+
+    <div class="d-inline m-4" *ngIf="isNotEngineer">
+      <a>
+        <button [className]=" testCase.testCase.isArchived? 'btn btn-primary' : 'btn btn-danger'"
+                [textContent]="testCase.testCase.isArchived ? 'Unarchive' : 'Archive'"
+                (click)="onArchiveButton()"></button>
+      </a>
+    </div>
+
+    <div class="d-inline m-4">
+      <a>
+        <button type="button" class="btn btn-success" (click)="run(testCase.testCase.id)">Run</button>
+      </a>
+    </div>
+  </div>
+</div>

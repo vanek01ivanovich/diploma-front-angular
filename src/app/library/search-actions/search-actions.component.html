@@ -1,1 +1,25 @@
-<p>search-actions works!</p>
+<div class="row align-top">
+  <div class="col-11 pb-4">
+    <nav class=" rounded navbar navbar-expand-lg navbar-light bg-light " style="width: 1150px">
+
+      <input type="text"
+             class="form-control  mr-sm-3"
+             placeholder="Name"
+             aria-label="Username"
+             aria-describedby="basic-addon1"
+             name="actionName"
+             [(ngModel)]="actionName">
+
+      <button type="button" class="btn btn-outline-success mr-3" (click)="searchAction()" >Search</button>
+      <label class="m-0 p-0">
+        <select class="custom-select border-success"  [(ngModel)]="orderSearch" (change)="getOrderSearch()" id="sortBy" style="width: 100px;" >
+          <option value="id">id</option>
+          <option value="name">name</option>
+          <option value="description">description</option>
+        </select>
+      </label>
+    </nav>
+  </div>
+</div>
+
+

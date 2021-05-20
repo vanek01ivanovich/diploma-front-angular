@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {EditDataEntryComponent} from '../edit-data-entry/edit-data-entry.component';
+import {DataSet} from '../../model/dataSet';
 
 @Component({
   selector: 'app-edit-name-data-set',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditNameDataSetComponent implements OnInit {
 
-  constructor() { }
+  @Input()dataSet: DataSet;
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  save(){
+    return this.dataSet;
   }
-
+  setValue(name: string) {
+    this.dataSet.name = name;
+  }
 }

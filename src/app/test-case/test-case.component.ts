@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-test-case',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestCaseComponent implements OnInit {
 
-  constructor() { }
+  tab = 'first';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

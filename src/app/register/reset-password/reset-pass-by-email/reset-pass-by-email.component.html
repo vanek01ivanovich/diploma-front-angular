@@ -1,1 +1,11 @@
-<p>reset-pass-by-email works!</p>
+<div style="width: 700px" >
+  <h3>Enter your email</h3>
+  <form [formGroup]="resetByEmailForm" (ngSubmit)="onSubmit(resetByEmailForm.value)" class="needs-validation" novalidate>
+    <div class="form-group">
+      <input type="text" formControlName="email" id="email"  class="form-control" >
+    </div>
+    <div class="button-reset">
+      <button type="submit" class="btn btn-primary" [disabled] = !resetByEmailForm.valid>Submit</button>
+    </div>
+  </form>
+</div>

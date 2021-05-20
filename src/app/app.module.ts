@@ -66,7 +66,15 @@ import { TestScenarioListComponent } from './test-scenario/test-scenario-list/te
 import { EditUserComponent } from './users/edit-user/edit-user.component';
 import { SettingsComponent } from './users/settings/settings.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
-import { UtilComponent } from './util/util.component';
+import {SearchComponent} from './util/search/search.component';
+import {PaginationComponent} from './util/pagination/pagination.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {ChartModule, HIGHCHARTS_MODULES} from 'angular-highcharts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {httpInterceptorProviders} from './auth/auth-interceptor';
 
 
 @NgModule({
@@ -82,6 +90,7 @@ import { UtilComponent } from './util/util.component';
     ListCompoundActionsComponent,
     CreateActionComponent,
     CreateCompoundComponent,
+    ListActionsComponent,
     CompoundButtonMenuComponent,
     CreateCompoundActionsComponent,
     CreateCompoundNameComponent,
@@ -131,17 +140,24 @@ import { UtilComponent } from './util/util.component';
     EditUserComponent,
     SettingsComponent,
     UsersListComponent,
-    UtilComponent,
+    SearchComponent,
+    PaginationComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    DragDropModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    Ng2SearchPipeModule,
+    ChartModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders, ListActionsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

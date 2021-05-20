@@ -1,1 +1,50 @@
-<p>test-case-create works!</p>
+<div class="container-fluid mr-5 mt-5">
+
+  <div class="choose-scenario-dataset">
+    <div class="form-row">
+
+      <div class="form-group col-md-6">
+        <div class="col-auto">
+          <select class="custom-select mr-sm-2" [(ngModel)]="scenarioId" (change)="onScenarioChosen()">
+            <option [value]=-1 selected disabled> Choose scenario</option>
+            <option *ngFor="let availableScenario of scenarios" [value]="availableScenario.id">
+              {{availableScenario.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <div class="col-auto">
+          <select class="custom-select mr-sm-2" [(ngModel)]="datasetId" (change)="onDatasetChosen()">
+            <option [value]=-1 selected disabled> Choose dataset</option>
+            <option *ngFor="let availableDataset of datasets" [value]="availableDataset.id">
+              {{availableDataset.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="testcase-form">
+    <div class="form-group m-3">
+      <input class="form-control" [(ngModel)]="testCaseName" placeholder="Enter name">
+    </div>
+
+    <app-test-case-body (showFormButton)="showForm = $event"></app-test-case-body>
+  </div>
+
+
+  <div class="container-fluid mr-5 mt-5" *ngIf="showForm">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+  </div>
+  <div class="container-fluid mr-5 mt-5">
+    <div [className]="'alert ' + progressTypeClass" role="alert" *ngIf="showSaveProgress">
+      {{progressMessage}}
+    </div>
+  </div>
+
+
+</div>

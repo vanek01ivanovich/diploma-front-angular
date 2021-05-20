@@ -1,0 +1,45 @@
+button{
+  margin-left: 15px;
+  color: grey;
+  height: 40px;
+  border-color: #E5E5E5;
+}
+.button-selected{
+  background: white;
+  z-index: 4;
+  border-bottom: 0;
+  height: 40px;
+}
+
+.headbuttons{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.input-field {
+  margin-left: 1em;
+  padding: .5em;
+  margin-bottom: .5em;
+}
+
+label{
+  width: 160px;
+}
+
+hr{
+  position: relative;
+  width: 1000px;
+  top: -0.7px;
+}
+
+.form{
+  min-width: 1000px;
+}
+
+

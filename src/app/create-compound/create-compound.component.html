@@ -1,1 +1,11 @@
-<p>create-compound works!</p>
+<div class="" style="width: 1150px">
+  <app-create-compound-name (name)="setName($event)"
+                            (description)="setDescription($event)">
+  </app-create-compound-name>
+
+  <app-create-compound-actions (createdActionsInCompound)="createCompound($event)"></app-create-compound-actions>
+  <div class="d-flex justify-content-center mb-5">
+    <button class="btn btn-outline-success w-25" (click)="saveCompound()" >Create Compound</button>
+  </div>
+</div>
+

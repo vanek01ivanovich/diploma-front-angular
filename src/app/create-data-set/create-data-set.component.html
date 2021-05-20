@@ -1,1 +1,37 @@
-<p>create-data-set works!</p>
+<div class="container m-5">
+  <form [formGroup]="createDataSet" (ngSubmit)="onSubmit(createDataSet.value)">
+    <div>
+      <div class="form-group">
+        <label>Data Set Name:
+          <input class="form-control" type="text" id="data_set_name" formControlName="name" placeholder="Data Set Name" #dataSetName/>
+        </label>
+        <div class="alert alert-danger" *ngIf="createDataSet.controls['name'].invalid && createDataSet.controls['name'].touched">
+          Name is required!
+        </div>
+      </div>
+
+    </div>
+    <div *ngFor="let index of indexes; let i = index" formArrayName="dataSetValues">
+      <div class="form-group">
+        <label>Value {{i+1}}:</label>
+        <div class="input-group mb-3" [formGroupName]="i" >
+          <input class="form-control" type="text" id="data_key{{i}}" formControlName="key" placeholder="key">
+          <input class="form-control" type="text" id="data_set_value{{i}}" formControlName="value" placeholder="value">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-danger input-group-text" (click)="delete(i)">X</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-value-button">
+      <button type="button" class="btn btn-outline-success" (click)="addValue()">Add Value</button>
+    </div>
+    <div *ngIf="indexes.length>0" class="submit-button">
+      <button type="submit" class="btn btn-outline-primary" [disabled]="!dataSetName.value">Add Data Set</button>
+    </div>
+  </form>
+</div>
+
+
+
+

@@ -1,1 +1,25 @@
-<p>list-compounds works!</p>
+<app-search [sorts]="sorts"
+            (clickSearch)="getEventClickSearch($event)">
+</app-search>
+
+<table class="table shadow" style="width: 1150px">
+  <thead class="shadow">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let compound of compounds" routerLink="/library/compound/{{compound.id}}">
+    <th scope="row">{{ compound.id }}</th>
+    <td>{{ compound.name }}</td>
+    <td>{{ compound.description }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<app-pagination [quantityPages]="quantityPages"
+                [sizePage]="currentPageSize"
+                (clickPage)="getEventChangePage($event)"
+></app-pagination>

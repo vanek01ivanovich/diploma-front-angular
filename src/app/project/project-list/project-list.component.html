@@ -1,1 +1,52 @@
-<p>project-list works!</p>
+<div class="tab">
+  <div class="m-3">
+  <h5>Projects list (click to see testcases)</h5>
+</div>
+<table class="table bg-light search-nav">
+  <thead>
+  <tr>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Name" aria-label="Search"
+                           [(ngModel)]="search.name" (change)="onSearchSubmit()"></th>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Link" aria-label="Search"
+                           [(ngModel)]="search.link" (change)="onSearchSubmit()"></th>
+    <th scope="col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2"
+               [(ngModel)]=this.search.isArchived (change)="onSearchSubmit()">
+        <label class="form-check-label" for="inlineCheckbox4">Archived</label>
+      </div>
+    </th>
+    <th scope="col">
+      <button class="btn btn-outline-success" type="submit" (click)="onSearchSubmit()">Search</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col" (click)="onColumnNameClick('id')">Id</th>
+    <th scope="col" (click)="onColumnNameClick('name')">Name</th>
+    <th scope="col" (click)="onColumnNameClick('link')">Link</th>
+    <th scope="col" (click)="onColumnNameClick('user_id')">userId</th>
+    <th scope="col" (click)="onColumnNameClick('is_archived')">isArchived</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let project of projectsObs | async" routerLink="/projects/{{project.id}}">
+    <th scope="row">{{project.id}}</th>
+    <td>{{project.name}}</td>
+    <td>{{project.link}}</td>
+    <td>{{project.userId}}</td>
+    <td>{{project.archived}}</td>
+  </tr>
+
+  </tbody>
+</table>
+
+<app-pagination [quantityPages]="numberOfPages"
+                [sizePage]="pageSize"
+                (clickPage)="getPage($event)"></app-pagination>
+</div>

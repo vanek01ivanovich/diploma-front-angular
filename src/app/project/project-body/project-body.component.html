@@ -1,1 +1,23 @@
-<p>project-body works!</p>
+<form [formGroup]="projectForm"  (ngSubmit)="validateAndSubmit()" >
+  <div class="form-group">
+    <label for="inputProjectName">Name</label>
+    <input type="text" class="form-control" id="inputProjectName"
+           formControlName="name"
+           placeholder="Enter project's name"
+           [(ngModel)]="project.name">
+  </div>
+  <div class="form-group">
+    <label for="inputProjectLink">Link</label>
+    <input type="text" class="form-control" id="inputProjectLink"
+           formControlName="link"
+           placeholder="Enter project's link"
+           [(ngModel)]="project.link">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="container-fluid mr-5 mt-5">
+    <div [className]="'alert mt-2 ' + progressTypeClass" role="alert" *ngIf="showSaveProgress">
+      {{progressMessage}}
+    </div>
+  </div>
+</form>

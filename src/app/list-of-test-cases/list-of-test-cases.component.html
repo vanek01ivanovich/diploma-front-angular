@@ -1,1 +1,33 @@
-<p>list-of-test-cases works!</p>
+<div>
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchedTestCase"
+         placeholder="search test case">
+</div>
+
+<table class="table" style="width: 500px">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of allTestCases | filter:searchedTestCase | slice:start:end">
+    <th scope="row">{{item.id}}</th>
+    <td>{{item.name}}</td>
+    <button type="button" class="btn btn-success" routerLink="{{item.id}}">view</button>
+
+    <button type="button" class="btn btn-success" (click)="run(item.id)">run</button>
+  </tr>
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example" style="margin-left: 30%">
+  <ul class="pagination">
+    <li class="page-item">
+      <button class="page-link" (click)="previousPage()"><</button>
+    </li>
+    <li class="page-item">
+      <button class="page-link"  aria-label="Next" (click)="nextPage()">></button>
+    </li>
+  </ul>
+</nav>

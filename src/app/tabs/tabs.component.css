@@ -1,0 +1,24 @@
+
+.nav-tabs li{
+  width: 200px;
+  margin: 0 5px 0 5px;
+}
+
+.nav-tabs{
+  border: 0;
+}
+
+.nav-tabs li a{
+  font-weight: bold;
+  padding-top: 13px;
+  text-align: center;
+  border-radius: 5px;
+  background: #000;
+  color: #FFFFFF;
+}
+
+.nav-tabs .nav-link.active{
+  background: #fff;
+  color: #000;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.4);
+}

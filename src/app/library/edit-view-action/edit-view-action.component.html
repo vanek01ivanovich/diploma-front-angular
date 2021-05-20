@@ -1,1 +1,45 @@
-<p>edit-view-action works!</p>
+<div class="ml-5 mt-2 mr-5 mb-2">
+  <div class="w-100">
+    <div class="row align-top">
+      <div class="col-12 p-4 ml-4">
+        <div class="ml-2 headbuttons">
+          <h3 class="ml-5 text-black-50">Action <i>"{{action.actionName}}"</i></h3>
+        </div>
+        <hr class="mb-0 mt-0">
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="mb-4 input">
+      <label class="float-left mr-5" >Name</label>
+      <input type="text"
+             class="form-control bg-white input-field"
+             aria-label="Username"
+             aria-describedby="basic-addon1"
+             value="{{action.actionName}}" disabled>
+    </div>
+    <div class="input">
+      <label class="float-left mr-5">Description</label>
+      <input type="text"
+             class="form-control input-field"
+             placeholder="Name"
+             aria-label="Username"
+             aria-describedby="basic-addon1"
+             value="{{action.actionDescription}}"
+             [(ngModel)]="action.actionDescription">
+    </div>
+
+    <div class="d-flex justify-content-end">
+      <button type="button" class=" btn btn-outline-success " (click)="updateActionDescription()">Save changes</button>
+    </div>
+    <hr class="mb-3 mt-4">
+    <h4 class="ml-5 text-black-50">Variables</h4>
+    <div class="input-group ml-5 mt-2 mr-5  " *ngFor="let variable of variables">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Value</span>
+        <input type="text" class="form-control bg-white w-100"  value="{{variable.name}}"  disabled>
+      </div>
+    </div>
+  </div>
+</div>

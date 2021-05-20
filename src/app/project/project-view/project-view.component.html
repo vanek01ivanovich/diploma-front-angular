@@ -1,1 +1,58 @@
-<p>project-view works!</p>
+<div class="form-group  m-4">
+
+  <div class="row">
+    <div class="col">
+      <p>Name</p>
+    </div>
+    <div class="col">
+      <p>{{project.name}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p>Link</p>
+    </div>
+    <div class="col">
+      <p>{{project.link}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>Creator</p>
+    </div>
+    <div class="col">
+      <p>{{project.user.name}}  {{project.user.surname}} (email: {{project.user.email}})</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <p>Is archived</p>
+    </div>
+    <div class="col">
+      <p>{{project.archived}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="d-inline ml-3">
+      <a routerLink="testcase">
+        <button class="btn btn-primary">Test Cases</button>
+      </a>
+    </div>
+    <div class="d-inline ml-4">
+      <a routerLink="edit">
+        <button class="btn btn-primary">Edit</button>
+      </a>
+    </div>
+
+    <div class="d-inline ml-4" *ngIf="isNotEngineer">
+      <a >
+        <button [className]="project.archived ? 'btn btn-primary' : 'btn btn-danger'"
+                [textContent]="project.archived ? 'Unarchive' : 'Archive'"
+                (click)="onArchiveButton()"></button>
+      </a>
+    </div>
+  </div>
+</div>

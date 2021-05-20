@@ -1,1 +1,35 @@
-<p>test-scenario-add-compound works!</p>
+<div class="mt-3 p-3 border border-primary rounded w-75">
+  <label class="font-weight-bold">Compound:</label><br>
+  <label>
+    <select class="custom-select mr-sm-2"
+            [(ngModel)]="currentCompoundName"
+            (ngModelChange)="setCompound()">
+      <option *ngFor="let compound of compounds">{{compound.name}}</option>
+    </select>
+  </label>
+  <br>
+  <button class="btn btn-outline-success m-1 w-25" type="button"
+          [disabled]="!isElementSelected"
+          (click)="createCompound()">Create
+  </button>
+  <button class="btn btn-outline-danger m-1 w-25" type="button"
+          (click)="cancelCompound()">Cancel
+  </button>
+  <div class="mt-2" *ngIf="isElementSelected && compoundActions.length > 0">
+    <table class="table w-100">
+      <thead>
+      <tr>
+        <th scope="col">Action</th>
+        <th scope="col">Priority</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let action of compoundActions">
+        <td>{{getActionNameById(action.actionId)}}</td>
+        <td>{{action.priority}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+

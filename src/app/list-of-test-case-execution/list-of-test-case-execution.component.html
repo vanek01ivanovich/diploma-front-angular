@@ -1,1 +1,88 @@
-<p>list-of-test-case-execution works!</p>
+<div class="container m-5 tab">
+  <table class="table bg-light search-nav">
+    <thead>
+    <tr>
+      <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Test Case Name" aria-label="Search"
+                             [(ngModel)]=testCaseName (keyup)="onSearchSubmit()"></th>
+      <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Project Name" aria-label="Search"
+                             [(ngModel)]=projectName (keyup)="onSearchSubmit()"></th>
+
+      <th scope="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="passed"
+                 [(ngModel)]=status.passed (change)="onSearchSubmit()">
+          <label class="form-check-label" for="inlineCheckbox1">Passed</label>
+        </div>
+      </th>
+      <th scope="col">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="failed"
+                 [(ngModel)]=status.failed (change)="onSearchSubmit()">
+          <label class="form-check-label" for="inlineCheckbox2">Failed</label>
+        </div>
+      </th>
+      <th scope="col">
+        <button class="btn btn-outline-success" type="submit" (click)="onSearchSubmit()">Search</button>
+      </th>
+    </tr>
+    </thead>
+  </table>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">id
+        <app-order-by-button [element]="'id'" (elementName)="orderBy($event)"></app-order-by-button>
+      </th>
+      <th scope="col">Test Case Name
+        <app-order-by-button [element]="'test_case_name'" (elementName)="orderBy($event)"></app-order-by-button>
+      </th>
+      <th scope="col">Project Name
+        <app-order-by-button [element]="'project_name'" (elementName)="orderBy($event)"></app-order-by-button>
+      </th>
+      <th scope="col">Start Time
+        <app-order-by-button [element]="'start_date_time'" (elementName)="orderBy($event)"></app-order-by-button>
+      </th>
+      <th scope="col">End Time
+        <app-order-by-button [element]="'end_date_time'" (elementName)="orderBy($event)"></app-order-by-button>
+      </th>
+      <th scope="col">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let testCaseExecution of testCaseExecutions; let i = index"
+        routerLink="/list/actions-execution/{{testCaseExecution.id}}">
+      <td scope="row">{{testCaseExecution.id}}</td>
+      <td>{{testCaseExecution.testCaseName}}</td>
+      <td>{{testCaseExecution.projectName}}</td>
+      <td>{{testCaseExecution.startDateTime}}</td>
+      <td>{{testCaseExecution.endDateTime}}</td>
+      <td>{{testCaseExecution.status}}
+        <div class="alert alert-danger" *ngIf="testCaseExecution.passedActions == 0">
+          executed {{testCaseExecution.passedActions}} of {{testCaseExecution.allActions}}
+        </div>
+        <div class="alert alert-warning" *ngIf="testCaseExecution.passedActions > 0 && testCaseExecution.passedActions < testCaseExecution.allActions">
+          executed {{testCaseExecution.passedActions}} of {{testCaseExecution.allActions}}
+        </div>
+        <div class="alert alert-success" *ngIf="testCaseExecution.passedActions == testCaseExecution.allActions && testCaseExecution.passedActions != 0">
+          executed {{testCaseExecution.passedActions}} of {{testCaseExecution.allActions}}
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <button class="page-link" (click)="previousPage()"><</button>
+      </li>
+      <li class="page-item" *ngFor="let item of pagination; let i = index" (click)="onPage(i)">
+        <button class="page-link" >{{i+1}}</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="nextPage()">></button>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,1 +1,38 @@
-<p>test-scenario-edit works!</p>
+<div class="container-fluid m-5" style="width: 1000px">
+  <h2 class="font-weight-bold text-center">Test Scenario</h2>
+
+  <form [formGroup]="form">
+    <label>
+      <strong>Old name:</strong>
+      <input type="text" class="form-control" style="width: 250%" value="{{currentTestScenario.name}}" disabled>
+    </label><br>
+    <label>
+      <strong>New name:</strong>
+      <input type="text" class="form-control"
+             style="width: 250%"
+             formControlName="newName"
+             #newName (ngModelChange)="changeValid()">
+      <small *ngIf="form.invalid && form.touched" style="color: red">Name is not defined!</small>
+      <small *ngIf="!isValidName" style="color: red">Name is already exists!</small>
+    </label><br>
+    <label>
+      <strong class="font-weight-bold">Archived:</strong>
+      <select class="custom-select mr-sm-2" formControlName="isArchived">
+        <option>True</option>
+        <option>False</option>
+      </select>
+    </label>
+    <div class="col-12 pl-0 pt-2" style="width: 1000px; display: inherit">
+      <button class="btn btn-outline-success btn-lg m-1 w-25" type="button"
+              (click)="updateTestScenario()"
+              [disabled]="form.invalid">Update
+      </button>
+      <button class="btn btn-outline-danger btn-lg m-1 w-25" type="button"
+              (click)="cancelTestScenario()">Cancel
+      </button>
+    </div>
+    <div *ngIf="isCreated" class="alert alert-success w-50 mt-3" role="alert">
+      Test Scenario is successfully updated!
+    </div>
+  </form>
+</div>

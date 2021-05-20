@@ -1,1 +1,38 @@
-<p>create-action works!</p>
+
+<div class="container">
+  <form [formGroup]="createAction" (ngSubmit)="onSubmit(createAction.value)" >
+    <div style="width: 450px">
+
+      <div class="form-group">
+        <label>Action name:</label>
+        <input class="form-control" type="text" formControlName="name" #actionName />
+      </div>
+
+      <div class="form-group">
+        <label>Action description:</label>
+        <input class="form-control" type="text" formControlName="description" #actionDescription />
+      </div>
+
+      <div style="text-align: right">
+        <button type="button" class="btn btn-outline-success" (click)="addValue()">Add Value</button>
+      </div>
+
+      <div *ngFor="let item of value_array; let i = index" formArrayName="variable_names">
+        <div class="form-group">
+          <label>Action variable value {{i+1}}:</label>
+          <div class="input-group mb-3">
+            <input class="form-control" type="text" formControlName="{{i}}">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-danger input-group-text" (click)="delete(i)">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="submit-button" *ngIf="value_array.length > 0">
+        <button type="submit" class="btn btn-outline-primary"
+                [disabled]="!actionName.value || !actionDescription.value">Add Action</button>
+      </div>
+    </div>
+  </form>
+</div>

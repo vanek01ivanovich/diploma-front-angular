@@ -1,1 +1,72 @@
-<p>menu works!</p>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+
+<header class="page-header grid" >
+  <nav>
+    <ul class="admin-menu">
+      <li class="menu-heading">
+        <h3>Admin</h3>
+      </li>
+      <li>
+        <a routerLink="/dashboard">
+
+          <i class="fa fa-bar-chart" style="font-size: 28px"  aria-hidden="true">	&nbsp;</i>Dashboard
+
+        </a>
+      </li>
+      <li>
+        <a routerLink="/projects">
+          <i class="fa fa-folder-open" style="font-size: 28px" aria-hidden="true">&nbsp;</i>Projects
+        </a>
+      </li>
+      <li>
+        <a routerLink="/list-of-test-case-execution">
+          <i class="fa fa-history" style="font-size: 28px" aria-hidden="true">&nbsp;</i>Test Case History
+        </a>
+      </li>
+      <li>
+        <a routerLink="/library">
+          <i class="fa fa-book" style="font-size: 28px" aria-hidden="true">&nbsp;</i>Libraries
+        </a>
+      </li>
+      <li><a routerLink="/test-scenario">
+        <i class="fa fa-list-ol" style="font-size: 28px"  aria-hidden="true">&nbsp;</i>Test Scenario
+      </a>
+      </li>
+      <li><a routerLink="/list-of-data-set">
+        <i class="fa fa-database" style="font-size: 28px" aria-hidden="true">&nbsp;</i>Data Set</a></li>
+      <li>
+        <a routerLink="/users"><i class="fa fa-users" style="font-size: 28px"  aria-hidden="true">&nbsp;</i>Users</a>
+      </li>
+
+      <li class="menu-heading">
+        <h3>Settings</h3>
+      </li>
+      <li><a routerLink="/settings">
+        <i class="fa fa-cogs" style="font-size: 28px"  aria-hidden="true">&nbsp;</i>Settings
+      </a>
+      </li>
+      <li>
+        <a (click)="logout()">
+          <i class="fa fa-sign-out" style="font-size: 28px" aria-hidden="true">&nbsp;</i>Log out
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+<!--<section class="page-content">
+<section class="grid">
+  <article style="border-style: double"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+  <article style="border-style: double;"></article>
+</section>
+</section>-->
+
+

@@ -1,1 +1,23 @@
-<p>edit-data-entry works!</p>
+<div class="col-12 pl-4 ml-5">
+  <div class="d-flex justify-content-end">
+    <button class="btn mb-4 btn-outline-success" (click)="addValue()">Add Value</button>
+  </div>
+  <div class="scroll border-0">
+    <div  class="input-group mb-3 " *ngFor="let value of dataEntry; let i = index">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Key</span>
+      </div>
+      <input type="text" class="form-control "  value="{{value.key}}" [(ngModel)]="value.key" (change)="setKey(value.key,i)">
+
+      <div class="input-group-prepend">
+        <span class="input-group-text">Value</span>
+      </div>
+      <input type="text" class="form-control"  value="{{value.value}}"  [(ngModel)]="value.value"  (change)="setValue(value.value,i)">
+      <div class="input-group-prepend">
+        <button class="input-group-text bg-white" (click)="deleteValue(i,value.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

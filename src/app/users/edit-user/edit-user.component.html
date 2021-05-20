@@ -1,1 +1,58 @@
-<p>edit-user works!</p>
+<div class="edit-user-block">
+  <form [formGroup]="updateUserForm"  (ngSubmit)="onSubmit(updateUserForm.value)">
+
+    <div class="form-group">
+      <label>Name: {{user.name}}</label>
+      <input class="form-control" name="name" formControlName="name" id="username" type="text"
+             [(ngModel)]="user.name" />
+
+      <div *ngIf="updateUserForm.controls['name'].invalid" class="alert alert-danger m-1">
+        Name is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Surname: {{user.surname}}</label>
+      <input class="form-control" name="surname" type="text" formControlName="surname"
+             [(ngModel)]="user.surname">
+      <div *ngIf="updateUserForm.controls['surname'].invalid" class="alert alert-danger m-1">
+        Surname is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email: {{user.email}}</label>
+      <input class="form-control" name="email" type="email" formControlName="email"
+             [(ngModel)]="user.email">
+      <div *ngIf="updateUserForm.controls['email'].invalid" class="alert alert-danger m-1">
+        Email is required!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Role: {{user.role}}</label>
+      <select class="form-control" id="role" name="role" formControlName="role" [(ngModel)]="user.role">
+        <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+        <option value="ROLE_MANAGER">ROLE_MANAGER</option>
+        <option value="ROLE_ENGINEER">ROLE_ENGINEER</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Status:
+        <span *ngIf="user.enabled; else elseBlock">Active</span>
+        <ng-template #elseBlock>No active</ng-template>
+      </label>
+      <div>
+        <select class="form-control" id="enabled" name="enabled" formControlName="enabled" [(ngModel)]="user.enabled">
+          <option value="activate">Activate</option>
+          <option value="deactivate">Deactivate</option>
+        </select>
+      </div>
+    </div>
+    <div class="edit-user-block-button">
+      <button type="submit" class="btn btn-primary" [disabled]="updateUserForm.invalid">Submit</button>
+    </div>
+  </form>
+</div>
+

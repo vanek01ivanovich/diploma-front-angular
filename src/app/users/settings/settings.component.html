@@ -1,1 +1,27 @@
-<p>settings works!</p>
+<div class="tab">
+<h2 class="header-settings">Settings</h2>
+<div  class="settings"   style="width: 800px">
+
+  <form [formGroup]="settingsUserForm"  (ngSubmit)="onSubmit(settingsUserForm.value)">
+
+    <h3>Personal information</h3>
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control" name="username" formControlName="name" id="username" type="text"
+             [placeholder]="settingsUserForm.controls.name.dirty ? '' : user.name">
+    </div>
+
+
+    <div class="form-group">
+      <label>Surname</label>
+      <input class="form-control" name="surname" type="text" formControlName="surname"
+             [placeholder]="settingsUserForm.controls.surname.dirty ? '' : user.surname">
+    </div>
+    <div class="button-settings">
+      <button type="submit" class="btn btn-primary" [disabled]="!(settingsUserForm.controls.name.dirty   || settingsUserForm.controls.surname.dirty ) ">Submit</button>
+    </div>
+  </form>
+  <a class="nav-link"(click)="resetPassword()">Reset password</a>
+<!--  <app-reset-password-settings *ngIf="reset"></app-reset-password-settings>-->
+</div>
+</div>

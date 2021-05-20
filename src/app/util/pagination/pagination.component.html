@@ -1,0 +1,24 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item">
+      <button class="page-link btn" aria-label="Previous"
+              [disabled]="currentPage === 1"
+              (click)="getPreviousPage()">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+
+    <li class="page-item" #pageElement
+        *ngFor="let page of [].constructor(quantityPages); index as index">
+      <a class="page-link" (click)="eventClickPage(index + 1)">{{index + 1}}</a>
+    </li>
+
+    <li class="page-item">
+      <button class="page-link btn" aria-label="Next"
+              [disabled]="currentPage === quantityPages"
+              (click)="getNextPage()">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>

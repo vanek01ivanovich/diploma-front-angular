@@ -1,1 +1,78 @@
-<p>users-list works!</p>
+<div class="tab">
+<div class="m-3">
+  <h5>Users list (click to edit)</h5>
+</div>
+<table class="table bg-light search-nav">
+  <thead>
+  <tr>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Name" aria-label="Search"
+                           [(ngModel)]="search.name" (change)="onSearchSubmit()"></th>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Surname" aria-label="Search"
+                           [(ngModel)]="search.surname" (change)="onSearchSubmit()"></th>
+    <th scope="col"><input class="form-control mr-sm-2" type="search" placeholder="Email" aria-label="Search"
+                           [(ngModel)]="search.email" (change)="onSearchSubmit()"></th>
+    <th scope="col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"
+               [(ngModel)]=roles.admin (change)="onSearchSubmit()">
+        <label class="form-check-label" for="inlineCheckbox1">Admin</label>
+      </div>
+    </th>
+    <th scope="col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"
+               [(ngModel)]=roles.manager (change)="onSearchSubmit()">
+        <label class="form-check-label" for="inlineCheckbox2">Manager</label>
+      </div>
+    </th>
+    <th scope="col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"
+               [(ngModel)]=roles.engineer (change)="onSearchSubmit()">
+        <label class="form-check-label" for="inlineCheckbox3">Engineer</label>
+      </div>
+    </th>
+    <th scope="col">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option2"
+               [(ngModel)]=search.onlyEnabled (change)="onSearchSubmit()">
+        <label class="form-check-label" for="inlineCheckbox4">Only enabled</label>
+      </div>
+    </th>
+
+    <th scope="col">
+      <button class="btn btn-outline-success" type="submit" (click)="onSearchSubmit()">Search</button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col" (click)="onColumnNameClick('id')">Id</th>
+    <th scope="col" (click)="onColumnNameClick('name')">Name</th>
+    <th scope="col" (click)="onColumnNameClick('surname')">Surname</th>
+    <th scope="col" (click)="onColumnNameClick('email')">Email</th>
+    <th scope="col" (click)="onColumnNameClick('role')">Role</th>
+    <th scope="col" (click)="onColumnNameClick('is_enabled')">Is enabled</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users" routerLink="/edituser/{{user.id}}">
+    <th scope="row">{{user.id}}</th>
+    <td>{{user.name}}</td>
+    <td>{{user.surname}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.role}}</td>
+    <td>{{user.enabled}}</td>
+  </tr>
+
+  </tbody>
+</table>
+
+<app-pagination [quantityPages]="numberOfPages"
+                [sizePage]="pageSize"
+                (clickPage)="getPage($event)"></app-pagination>
+</div>

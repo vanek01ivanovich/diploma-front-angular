@@ -1,20 +1,110 @@
-form{
-  background: #F6F7FC;
+html{
   height: 100vh;
-}
-.login-form{
-  position: fixed;
-  background: #FFFFFF;
-  width: 67vh;
-  box-shadow: 0px 4px 17px rgba(0, 0, 0, 0.25);
-  height: 42vh;
-  margin: 32vh 44vh;
-  text-align: center;
-}
-.login-text{
-  color: #5C5C5C;
-  font-family: "Gill Sans", sans-serif;
-  font-style: normal;
-  font-weight: normal;
+  width:  100vw;
+  background: #EBEEEF;
 }
 
+
+.card {
+  margin-bottom: 20px;
+  margin-top: 40px;
+  border: none;
+}
+
+.box {
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-align: center;
+  transition: 0.25s;
+  margin-top: 100px
+}
+
+.box input[type="email"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #3498db;
+  padding: 10px 10px;
+  width: 250px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+
+.box h1 {
+  color: black;
+  text-transform: uppercase;
+  font-weight: 500
+}
+
+.box input[type="email"]:focus,
+.box input[type="password"]:focus {
+  width: 300px;
+  border-color: #2ecc71
+}
+
+.box button[type="submit"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #2ecc71;
+  padding: 14px 40px;
+  outline: none;
+  color: black;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer
+}
+
+.box button[type="submit"]:hover {
+  background: #2ecc71
+}
+
+.forgot {
+  text-decoration: underline
+}
+
+
+
+
+
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  border-radius: 50%;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  font-size: 20px
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 50px;
+  text-align: center
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  transform: rotate(360deg);
+  transition: all 0.2s
+}
+
+.social-circle i {
+  color: #fff;
+  transition: all 0.8s;
+  transition: all 0.8s
+}

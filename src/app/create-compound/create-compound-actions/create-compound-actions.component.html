@@ -1,1 +1,25 @@
-<p>create-compound-actions works!</p>
+<div cdkDropListGroup class=" pl-5 pb-4 ml-5 mt-5">
+  <div  class="example-container">
+    <h3>Actions<span>(drag actions)</span></h3>
+    <div id="actions" cdkDropList
+         [cdkDropListData]="actions" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of actions " cdkDrag>
+        <h6>{{item.actionName}} ( {{item.actionDescription}} )</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h3>Added Actions</h3>
+    <div id="actionsInCompound" cdkDropList
+         [cdkDropListData]="actionsInCompound" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div  class="example-box" *ngFor="let item of actionsInCompound; let i = index" cdkDrag>
+        <h6>{{item.actionName}} ( {{item.actionDescription}} ) </h6>
+        <div class="actionInCom">
+          <h6 class=" text-success">Priority [ {{i+1}} ]</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

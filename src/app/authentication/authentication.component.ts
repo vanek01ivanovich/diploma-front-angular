@@ -27,7 +27,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   onSubmit(){
-    this.loginInfo = new AuthLoginInfo(this.form.username, this.form.password);
+    this.loginInfo = new AuthLoginInfo(this.form.username, btoa(this.form.password));
     console.log(this.loginInfo);
     this.authService.login(this.loginInfo).subscribe(
       data => {

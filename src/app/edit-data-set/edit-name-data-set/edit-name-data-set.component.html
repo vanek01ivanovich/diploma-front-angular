@@ -1,1 +1,14 @@
-<p>edit-name-data-set works!</p>
+<div class="row">
+  <div class="col-12">
+    <div class="mb-4 input">
+      <label class="float-left" style="width: 160px">Name</label>
+      <input [(ngModel)]="dataSet.name"
+             aria-describedby="basic-addon1"
+             class="form-control input-field"
+             type="text"
+             value="{{dataSet.name}}"
+             (ngModelChange)="setValue(dataSet.name)">
+    </div>
+  </div>
+</div>
+

@@ -1,1 +1,47 @@
-<p>library works!</p>
+<div class="container-fluid p-5">
+  <div class="row align-top">
+
+    <div class="col-12">
+      <div class="">
+        <ul class="nav nav-tabs" style="width: 1150px">
+          <li class="nav-item">
+            <a class="nav-link active" #buttonActions (click)="clickButtonActions()">Actions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" #buttonCompounds (click)="clickButtonCompounds()">Compounds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" #buttonCreateCompound (click)="clickButtonCreateCompound()">Create Compound</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="m-3 tab">
+        <div *ngIf="isButtonActions">
+          <app-search-actions
+            [orderSearch]="orderSearch"
+            [orderSort]="orderSort"
+            (actions)="getActionsFromSearch($event)"
+            (numberOfPages)="getNumberOfPagesFromSearch($event)"></app-search-actions>
+          <app-list-actions [actions]="actions"
+                            [numberOfPages]="numberOfPages"
+                            [pageNumbers]="pageNumber"
+                            [pageSize]="pageSize"
+                            [orderSearch]="orderSearch"
+                            [orderSort]="orderSort"></app-list-actions>
+        </div>
+
+        <div *ngIf="isButtonCompounds">
+          <app-list-compounds></app-list-compounds>
+        </div>
+
+        <div *ngIf="isButtonCreateCompound">
+          <app-create-compound></app-create-compound>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
