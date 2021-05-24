@@ -1,0 +1,58 @@
+<div class="nav-tabs mt-5">
+  <ul class="nav nav-tabs" style="width: 1150px">
+    <li class="nav-item">
+      <a class="nav-link active">Action Executions</a>
+    </li>
+  </ul>
+</div>
+<div class="tab">
+  <div class="row align-top">
+    <div class="p-4 ml-4">
+      <div class="">
+        <app-action-execution-search (clickSearch)="getEventClickSearch($event)">
+        </app-action-execution-search>
+        <table class="table shadow">
+          <thead class="shadow">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Action Name</th>
+            <th scope="col">Variable Name</th>
+            <th scope="col">Variable Key</th>
+            <th scope="col">Variable Value</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of actionExecution; let i = index">
+              <td scope="row" [ngClass]="{failedStatus: item.status === 'FAILED',
+                                          passedStatus: item.status === 'PASSED',
+                                          notStartedStatus: item.status === 'NOTSTARTED'}">{{offset + i+1}}</td>
+              <td [ngClass]="{failedStatus: item.status === 'FAILED',
+                              passedStatus: item.status === 'PASSED',
+                              notStartedStatus: item.status === 'NOTSTARTED'}">{{item.action.actionName}}</td>
+              <td [ngClass]="{failedStatus: item.status === 'FAILED',
+                              passedStatus: item.status === 'PASSED',
+                              notStartedStatus: item.status === 'NOTSTARTED'}">{{item.variable.name}}</td>
+              <td [ngClass]="{failedStatus: item.status === 'FAILED',
+                              passedStatus: item.status === 'PASSED',
+                              notStartedStatus: item.status === 'NOTSTARTED'}">{{item.dataEntry.key}}</td>
+              <td [ngClass]="{failedStatus: item.status === 'FAILED',
+                              passedStatus: item.status === 'PASSED',
+                              notStartedStatus: item.status === 'NOTSTARTED'}">{{item.dataEntry.value}}</td>
+              <td [ngClass]="{failedStatus: item.status === 'FAILED',
+                              passedStatus: item.status === 'PASSED',
+                              notStartedStatus: item.status === 'NOTSTARTED'}">{{item.status}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-pagination [quantityPages]="quantityPages"
+                  [sizePage]="currentPageSize"
+                  (clickPage)="getEventChangePage($event)"></app-pagination>
+  <div class="d-flex justify-content-end ">
+    <button class="btn btn-outline-success" (click)="sendReport()">Send Report</button>
+  </div>
+</div>

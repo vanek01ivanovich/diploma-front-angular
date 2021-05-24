@@ -28,30 +28,39 @@ import {TestScenarioComponent} from './test-scenario/test-scenario.component';
 import {TestScenarioCreateComponent} from './test-scenario/test-scenario-create/test-scenario-create.component';
 import {TestScenarioEditComponent} from './test-scenario/test-scenario-edit/test-scenario-edit.component';
 import {TestScenarioListComponent} from './test-scenario/test-scenario-list/test-scenario-list.component';
+import {EditViewActionComponent} from './library/edit-view-action/edit-view-action.component';
+import {EditDataSetComponent} from './edit-data-set/edit-data-set.component';
+import {CompoundComponent} from './compound/compound.component';
+import {ActionExecutionComponent} from './action-execution/action-execution.component';
 
 
 const routes: Routes = [
   { path: 'login', component: AuthenticationComponent},
+  { path: '', component: AuthenticationComponent},
+  { path: 'projects/:project_id', component: ProjectViewComponent},
+  { path: 'create-action', component: CreateActionComponent },
   { path: 'menu', component: MenuComponent},
+  { path: 'dataset/edit/:id', component: EditDataSetComponent},
+  { path: 'compounds/edit/:id', component: CompoundComponent},
   { path: 'users', component: UsersComponent},
-  { path: 'dashboard', component: DashboardComponent/*,  canActivate: [RoleGuard]*/},
-  { path: 'library', component: LibraryComponent/*, canActivate: [RoleGuard]*/},
+  { path: 'action/view-edit/:id', component: EditViewActionComponent},
   { path: 'users', component: UsersComponent},
   { path: 'projects', component: ProjectComponent},
+  { path: 'library', component: LibraryComponent/*, canActivate: [RoleGuard]*/},
   { path: 'compounds/create', component: CreateCompoundComponent},
+  { path: 'dashboard', component: DashboardComponent/*,  canActivate: [RoleGuard]*/},
   { path: 'projects/:project_id/testcase', component: TestCaseComponent},
   { path: 'projects/:project_id/edit', component: ProjectEditComponent},
-  { path: 'projects/:project_id', component: ProjectViewComponent},
   { path: 'projects', component: ProjectComponent},
   { path: 'projects/:project_id/testcase/:test_case_id/edit', component: TestCaseEditComponent},
   { path: 'projects/:project_id/testcase/:test_case_id', component: TestCaseViewComponent},
   { path: 'create-data-set', component: CreateDataSetComponent},
-  { path: 'create-action', component: CreateActionComponent },
   { path: 'list-of-data-set', component: ListOfDataSetComponent },
   { path: 'list-of-test-cases', component: ListOfTestCasesComponent },
   { path: 'list-of-test-cases-pagination', component: TestCaseListComponent},
   { path: 'list-of-test-case-execution', component: ListOfTestCaseExecutionComponent},
   { path: 'list-of-test-cases-pagination', component: TestCaseListComponent},
+  { path: 'list/actions-execution/:test_case_execution_id', component: ActionExecutionComponent},
   { path: 'reset-password/:token', component: ResetPasswordComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'action-execution-dashboard', component: ActionExecutionDashboardComponent},

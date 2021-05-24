@@ -1,0 +1,12 @@
+<div class="p-0 ml-4 pb-3">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 1012px">
+    <input type="search"
+           class="form-control mr-sm-3"
+           placeholder="Search"
+           aria-label="Search"
+           [(ngModel)]="currentSearch"
+           (keyup.enter)="eventClickSearch()">
+    <button type="button" class="btn btn-outline-success mr-3"
+            (click)="eventClickSearch()">Search</button>
+  </nav>
+</div>

@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let action of actions; let i = index" routerLink="/action/view-edit/{{i+1}}">
+  <tr *ngFor="let action of actions; let i = index" routerLink="/action/view-edit/{{action.actionId}}">
     <td scope="row">{{action.actionId}}</td>
     <td>{{action.actionName}}</td>
     <td>{{action.actionDescription}}</td>

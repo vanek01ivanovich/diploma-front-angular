@@ -21,6 +21,10 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
+  getPage(params: Params) {
+    return this.http.get<UserDto[]>(this.getUsersListUrl, {params});
+  }
+
   getManagerBoard(): Observable<string> {
     return this.http.get(this.managerUrl, {responseType: 'text'});
   }
@@ -41,9 +45,7 @@ export class UserService {
     return this.http.put(url, body);
   }
 
-  getPage(params: Params) {
-    return this.http.get<UserDto[]>(this.getUsersListUrl, {params});
-  }
+
 
   getCountPagesSearch(params: Params) {
     return this.http.get<number>(this.countSearchPagesUrl, {params});

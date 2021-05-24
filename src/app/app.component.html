@@ -1,4 +1,5 @@
 <div class="router-outlet">
-  <div class="float-left " ><app-menu></app-menu></div>
-  <div class="float-left" style="margin-left: 250px"><router-outlet></router-outlet></div>
+  <div class="float-left " *ngIf="authority !== undefined" ><app-menu></app-menu></div>
+  <div class="float-left"
+       [ngStyle]="{'margin-left': authority == undefined ? '0px' : '250px'}"><router-outlet></router-outlet></div>
 </div>

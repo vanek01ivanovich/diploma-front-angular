@@ -75,6 +75,8 @@ import {ChartModule, HIGHCHARTS_MODULES} from 'angular-highcharts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
+import {ActionExecutionComponent} from './action-execution/action-execution.component';
+import {ActionExecutionSearchComponent} from './action-execution/action-execution-search/action-execution-search.component';
 
 
 @NgModule({
@@ -141,7 +143,9 @@ import {httpInterceptorProviders} from './auth/auth-interceptor';
     SettingsComponent,
     UsersListComponent,
     SearchComponent,
-    PaginationComponent
+    PaginationComponent,
+    ActionExecutionComponent,
+    ActionExecutionSearchComponent
 
   ],
   imports: [
