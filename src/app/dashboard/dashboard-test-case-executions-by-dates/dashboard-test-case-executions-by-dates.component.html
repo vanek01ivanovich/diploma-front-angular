@@ -1,0 +1,15 @@
+<div *ngIf="isEnableData" routerLink="/list-of-test-case-execution">
+  <h4 class="text-center">Test case executions by dates</h4>
+  <ngx-charts-bar-vertical
+    [view]="view"
+    [results]="array"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-vertical>
+</div>

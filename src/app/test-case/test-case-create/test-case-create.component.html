@@ -1,3 +1,4 @@
+<div class="tab">
 <div class="container-fluid mr-5 mt-5">
 
   <div class="choose-scenario-dataset">
@@ -5,8 +6,8 @@
 
       <div class="form-group col-md-6">
         <div class="col-auto">
-          <select class="custom-select mr-sm-2" [(ngModel)]="scenarioId" (change)="onScenarioChosen()">
-            <option [value]=-1 selected disabled> Choose scenario</option>
+          <select class="custom-select mr-sm-2" [(ngModel)]="scenarioId" (change)="onScenarioChosen()" style="font-size: 13px">
+            <option [value]=-1 selected disabled > Choose scenario</option>
             <option *ngFor="let availableScenario of scenarios" [value]="availableScenario.id">
               {{availableScenario.name}}
             </option>
@@ -16,7 +17,7 @@
 
       <div class="form-group col-md-6">
         <div class="col-auto">
-          <select class="custom-select mr-sm-2" [(ngModel)]="datasetId" (change)="onDatasetChosen()">
+          <select class="custom-select mr-sm-2" [(ngModel)]="datasetId" (change)="onDatasetChosen()" style="font-size: 13px">
             <option [value]=-1 selected disabled> Choose dataset</option>
             <option *ngFor="let availableDataset of datasets" [value]="availableDataset.id">
               {{availableDataset.name}}
@@ -47,4 +48,5 @@
   </div>
 
 
+</div>
 </div>

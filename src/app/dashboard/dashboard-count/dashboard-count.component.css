@@ -1,0 +1,45 @@
+.container {
+  margin-top: 15px
+}
+
+.counter-box {
+  display: block;
+  background: #f6f6f6;
+  padding: 20px 10px 27px;
+  text-align: center;
+  font-weight: bold;
+  height: 100%;
+}
+
+.counter-box p {
+  margin: 5px 0 0;
+  padding: 0;
+  color: #909090;
+  font-size: 18px;
+  font-weight: 500;
+
+}
+
+.counter-box i {
+  font-size: 60px;
+  margin: 0 0 15px;
+  color: #d2d2d2;
+}
+
+.counter {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: #666;
+  line-height: 28px;
+}
+
+.counter-box.colored {
+  background: #73d4f5
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+  color: #fff
+}

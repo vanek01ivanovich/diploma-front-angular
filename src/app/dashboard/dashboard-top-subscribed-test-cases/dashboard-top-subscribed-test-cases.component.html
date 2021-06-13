@@ -1,1 +1,24 @@
-<p>dashboard-top-subscribed-test-cases works!</p>
+<div class="card shadow sm">
+  <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold">Top subscribed Test Cases</h6>
+  </div>
+  <div class="card-body p-0 m-0">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Project</th>
+        <th scope="col">Test Case</th>
+        <th scope="col">Subscribers</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let testCase of testCases; let inx = index">
+        <th scope="row">{{inx+1}}</th>
+        <td>{{testCase.projectName}}</td>
+        <td>{{testCase.name}}</td>
+        <td class="text-center">{{testCase.quantitySubscribers}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

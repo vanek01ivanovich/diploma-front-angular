@@ -1,3 +1,24 @@
-<!--<p>dashboard works!</p>
-<a (click)="logout()">Log out</a>-->
-<!--<button (click)="logout()">Log out</button>-->
+<div class="container mt-5">
+  <div class="row">
+    <div class="float-left m-3">
+      <app-dashboard-count></app-dashboard-count>
+    </div>
+    <div class="float-left m-3">
+      <app-action-execution-dashboard></app-action-execution-dashboard>
+    </div>
+    <div class="float-left m-3">
+      <app-dashboard-top-subscribed-test-cases></app-dashboard-top-subscribed-test-cases>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col" style="max-width: 510px;">
+      <app-dashboard-testcase-execution-number></app-dashboard-testcase-execution-number>
+    </div>
+    <div class="col">
+      <app-dashboard-test-case-executions-by-dates></app-dashboard-test-case-executions-by-dates>
+    </div>
+  </div>
+
+
+</div>

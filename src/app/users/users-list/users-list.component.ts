@@ -45,6 +45,8 @@ export class UsersListComponent implements OnInit, OnDestroy {
   countPages() {
     this.userService.getCountPagesSearch(this.getParams()).subscribe(data => {
       this.numberOfPages = data;
+      console.log(data);
+      console.log(this.numberOfPages);
     });
   }
 

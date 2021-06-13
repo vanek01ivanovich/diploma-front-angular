@@ -1,22 +1,24 @@
 <div class="ml-5 mt-2 mr-5 mb-2" >
   <div class="w-100">
-    <div class="row align-top">
-      <div class="col-12 p-4 ml-4">
-        <div class="ml-2 headbuttons">
-          <button class=" btn btn-default w-25 button-selected" disabled>Edit Compound</button>
-        </div>
-        <hr class="mb-0 mt-0" style="position: relative;width: 1000px; top: -0.7px">
+    <div class="col-12">
+      <div class="">
+        <ul class="nav nav-tabs" style="width: 1150px">
+          <li class="nav-item">
+            <a class="nav-link" #buttonCreateCompound >Edit Data Set</a>
+          </li>
+        </ul>
       </div>
-    </div>
-    <div>
+    <div class="tab">
       <app-edit-name-data-set [dataSet]="dataSet"></app-edit-name-data-set>
       <app-edit-data-entry [dataEntry]="dataEntry" [dataSetId]="dataSet.id"></app-edit-data-entry>
       <div class="d-flex justify-content-end">
         <button class="btn mb-4 btn-outline-success" (click)="saveChanges()">Save changes</button>
       </div>
+      <button type="button" class="btn btn-outline-danger" (click)="delete()">Delete</button>
     </div>
   </div>
-  <button type="button" class="btn btn-outline-danger" (click)="delete()">Delete</button>
+
+
 </div>
 
 

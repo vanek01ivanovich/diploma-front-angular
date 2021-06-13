@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../model/user';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
-import { Location } from "@angular/common";
-import Swal from "sweetalert2";
+import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-user',

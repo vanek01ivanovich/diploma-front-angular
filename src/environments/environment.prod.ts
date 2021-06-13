@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  url: 'https://automatically-testing-java.herokuapp.com/'
+  url: 'https://control-testing-hub-angular.herokuapp.com/'
 };

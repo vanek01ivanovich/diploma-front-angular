@@ -18,7 +18,26 @@
   </tr>
   </tbody>
 </table>
+<!--<nav aria-label="Page navigation example" class="d-flex justify-content-center">
+  <ul class="pagination" >
+    <li class="page-item">
+      <a class="page-link" (click)="getPrevious()" aria-label="Previous">
+        <span aria-hidden="true" >&laquo;</span>
+      </a>
+    </li>
 
+    <li class="page-item" *ngFor="let page of [].constructor(numberOfPages); let i = index">
+      <a class="page-link" (click)="getPage(i+1)" [ngClass]="{background: pageNumbers === i+1}">{{i+1}}</a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" (click)="getNext()" aria-label="Next">
+        <span aria-hidden="true" >&raquo;</span>
+
+      </a>
+    </li>
+  </ul>
+</nav>-->
 <app-pagination [quantityPages]="quantityPages"
                 [sizePage]="currentPageSize"
                 (clickPage)="getEventChangePage($event)"

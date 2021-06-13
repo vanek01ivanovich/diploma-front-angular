@@ -23,8 +23,6 @@ import { CreateCompoundNameComponent } from './create-compound/create-compound-n
 import { CreateDataSetComponent } from './create-data-set/create-data-set.component';
 import { ActionExecutionDashboardComponent } from './dashboard/action-execution-dashboard/action-execution-dashboard.component';
 import { DashboardCountComponent } from './dashboard/dashboard-count/dashboard-count.component';
-import { DashboardTestCaseExecutionsByDateComponent } from './dashboard/dashboard-test-case-executions-by-date/dashboard-test-case-executions-by-date.component';
-import { DashboardTestCaseExecutionsNumberComponent } from './dashboard/dashboard-test-case-executions-number/dashboard-test-case-executions-number.component';
 import { DashboardTopSubscribedTestCasesComponent } from './dashboard/dashboard-top-subscribed-test-cases/dashboard-top-subscribed-test-cases.component';
 import { EditDataSetComponent } from './edit-data-set/edit-data-set.component';
 import { EditDataEntryComponent } from './edit-data-set/edit-data-entry/edit-data-entry.component';
@@ -77,6 +75,8 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {httpInterceptorProviders} from './auth/auth-interceptor';
 import {ActionExecutionComponent} from './action-execution/action-execution.component';
 import {ActionExecutionSearchComponent} from './action-execution/action-execution-search/action-execution-search.component';
+import {DashboardTestCaseExecutionsByDatesComponent} from './dashboard/dashboard-test-case-executions-by-dates/dashboard-test-case-executions-by-dates.component';
+import {DashboardTestcaseExecutionNumberComponent} from './dashboard/dashboard-testcase-execution-number/dashboard-testcase-execution-number.component';
 
 
 @NgModule({
@@ -99,8 +99,8 @@ import {ActionExecutionSearchComponent} from './action-execution/action-executio
     CreateDataSetComponent,
     ActionExecutionDashboardComponent,
     DashboardCountComponent,
-    DashboardTestCaseExecutionsByDateComponent,
-    DashboardTestCaseExecutionsNumberComponent,
+    DashboardTestCaseExecutionsByDatesComponent,
+    DashboardTestcaseExecutionNumberComponent,
     DashboardTopSubscribedTestCasesComponent,
     EditDataSetComponent,
     EditDataEntryComponent,
