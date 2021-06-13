@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../../services/user.service';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormGroup,
   Validators,
@@ -19,6 +19,7 @@ export class ResetPassByEmailComponent implements OnInit {
 
   constructor(private userService: UserService,
               private formBuilder: FormBuilder,
+              private router: Router,
               private route: ActivatedRoute) {
     this.resetByEmailForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
@@ -33,5 +34,6 @@ export class ResetPassByEmailComponent implements OnInit {
     Swal.fire({icon: 'success',
       title: 'ok',
       text: 'Reset link sent to your email'});
+    this.router.navigate(['/login']);
   }
 }
