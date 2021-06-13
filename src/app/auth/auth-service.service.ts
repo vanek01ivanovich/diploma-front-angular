@@ -17,7 +17,8 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
   private url = `${environment.url}`;
-  private loginUrl = this.url + 'login';
+  private sendReportUrl = this.url + 'send/report/';
+  private loginUrl = 'https://control-testing-hub-angular.herokuapp.com/login';
 
   login(credentials: AuthLoginInfo): Observable<JwtResponse>{
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
